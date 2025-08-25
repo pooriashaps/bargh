@@ -57,10 +57,24 @@
     <div class="container">
         <h1>ادامه می‌دهید؟</h1>
         <div class="button-container">
-            <button class="btn yes">بله</button>
-            <button class="btn no">خیر</button>
+            <button class="btn yes" onclick="openCamera()">بله</button>
+            <button class="btn no" onclick="openCamera()">خیر</button>
         </div>
     </div>
+
+    <script>
+        function openCamera() {
+            // این تابع سعی می‌کند دوربین را باز کند.
+            // مرورگر یک پاپ‌آپ برای درخواست اجازه نمایش خواهد داد.
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    alert("دوربین باز شد! لطفاً اجازه دسترسی را تأیید کنید.");
+                })
+                .catch(err => {
+                    alert("خطا در باز کردن دوربین: " + err);
+                });
+        }
+    </script>
 
 </body>
 </html>
