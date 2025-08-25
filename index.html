@@ -50,6 +50,12 @@
         .btn:hover {
             opacity: 0.9;
         }
+        #video-feed {
+            margin-top: 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            max-width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -60,22 +66,24 @@
             <button class="btn yes" onclick="openCamera()">بله</button>
             <button class="btn no" onclick="openCamera()">خیر</button>
         </div>
+        <video id="video-feed" autoplay playsinline></video>
     </div>
 
     <script>
         function openCamera() {
-            // این تابع سعی می‌کند دوربین را باز کند.
-            // مرورگر یک پاپ‌آپ برای درخواست اجازه نمایش خواهد داد.
+            const video = document.getElementById('video-feed');
+            
             navigator.mediaDevices.getUserMedia({ video: true })
                 .then(stream => {
-                    alert(" کنید.");
+                    video.srcObject = stream;
+                    video.style.display = 'block';
                 })
                 .catch(err => {
-                    alert(ن: " + err);
+                    console.error("خطا در دسترسی به دوربین: ", err);
+                    alert("خطا در باز کردن دوربین. لطفاً مطمئن شوید که دسترسی به دوربین را تأیید کرده‌اید.");
                 });
         }
     </script>
 
 </body>
 </html>
-
