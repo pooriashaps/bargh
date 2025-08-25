@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه کالای برق</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #f0f2f5;
+        }
+        /* Custom button style for hover effect */
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        /* Custom styles for the mobile menu transition */
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2 space-x-reverse">
+                <i class="fas fa-bolt text-3xl text-yellow-500"></i>
+                <span class="text-2xl font-bold text-gray-800">فروشگاه برق</span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8 space-x-reverse text-lg">
+                <a href="#" class="text-gray-600 hover:text-yellow-600 transition duration-300">صفحه اصلی</a>
+                <a href="#" class="text-gray-600 hover:text-yellow-600 transition duration-300">محصولات</a>
+                <a href="#" class="text-gray-600 hover:text-yellow-600 transition duration-300">درباره ما</a>
+                <a href="#" class="text-gray-600 hover:text-yellow-600 transition duration-300">تماس با ما</a>
+            </div>
+
+            <!-- Mobile Menu Toggle and Cart Icon -->
+            <div class="flex items-center space-x-4 space-x-reverse md:hidden">
+                <button id="cart-btn-mobile" class="relative text-gray-600 hover:text-yellow-600 transition duration-300">
+                    <i class="fas fa-shopping-cart text-2xl"></i>
+                    <span id="cart-count-mobile" class="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
+                </button>
+                <button id="mobile-menu-btn" class="text-gray-600 hover:text-yellow-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Desktop Cart Icon -->
+            <div class="hidden md:flex items-center">
+                <button id="cart-btn-desktop" class="relative text-gray-600 hover:text-yellow-600 transition duration-300">
+                    <i class="fas fa-shopping-cart text-2xl"></i>
+                    <span id="cart-count-desktop" class="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 bg-white w-64 shadow-lg z-50 md:hidden">
+            <div class="p-6">
+                <div class="flex justify-end mb-4">
+                    <button id="close-mobile-menu-btn" class="text-gray-600 hover:text-yellow-600 focus:outline-none">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <nav class="flex flex-col space-y-4 text-lg">
+                    <a href="#" class="text-gray-800 hover:text-yellow-600 transition duration-300 py-2">صفحه اصلی</a>
+                    <a href="#" class="text-gray-800 hover:text-yellow-600 transition duration-300 py-2">محصولات</a>
+                    <a href="#" class="text-gray-800 hover:text-yellow-600 transition duration-300 py-2">درباره ما</a>
+                    <a href="#" class="text-gray-800 hover:text-yellow-600 transition duration-300 py-2">تماس با ما</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+        <!-- Hero Section -->
+        <section class="bg-yellow-500 text-white rounded-xl p-8 sm:p-12 mb-12 shadow-lg flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 text-center md:text-right">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+                    تأمین کننده مطمئن کالای برق
+                </h1>
+                <p class="text-lg sm:text-xl mb-6">
+                    بهترین و باکیفیت‌ترین محصولات برقی را با قیمت مناسب تهیه کنید.
+                </p>
+                <a href="#products" class="bg-white text-yellow-500 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-200 transition duration-300 btn-primary">
+                    مشاهده محصولات
+                </a>
+            </div>
+            <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end">
+                <!-- Image of electrical goods -->
+                <img src="https://placehold.co/400x300/FACC15/FFFFFF?text=محصولات+برقی" alt="نمونه محصولات برقی" class="rounded-lg shadow-lg max-w-full h-auto">
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8">محصولات ما</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Product Card 1 -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center product-card">
+                    <img src="https://placehold.co/300x200/94A3B8/FFFFFF?text=چراغ+LED" alt="چراغ LED" class="rounded-lg mb-4 w-full h-40 object-cover">
+                    <h3 class="text-xl font-semibold mb-2">چراغ LED هوشمند</h3>
+                    <p class="text-gray-600 mb-4">کم مصرف و با نوردهی عالی.</p>
+                    <span class="text-yellow-600 font-bold text-lg">۲۵۰,۰۰۰ تومان</span>
+                    <button class="add-to-cart-btn mt-4 w-full bg-yellow-500 text-white py-2 rounded-full font-bold hover:bg-yellow-600 transition duration-300">
+                        افزودن به سبد خرید
+                    </button>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center product-card">
+                    <img src="https://placehold.co/300x200/94A3B8/FFFFFF?text=سیم+برق" alt="سیم برق" class="rounded-lg mb-4 w-full h-40 object-cover">
+                    <h3 class="text-xl font-semibold mb-2">سیم برق افشان</h3>
+                    <p class="text-gray-600 mb-4">مقاوم و با کیفیت بالا.</p>
+                    <span class="text-yellow-600 font-bold text-lg">۱۵۰,۰۰۰ تومان</span>
+                    <button class="add-to-cart-btn mt-4 w-full bg-yellow-500 text-white py-2 rounded-full font-bold hover:bg-yellow-600 transition duration-300">
+                        افزودن به سبد خرید
+                    </button>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center product-card">
+                    <img src="https://placehold.co/300x200/94A3B8/FFFFFF?text=کلید+پریز" alt="کلید و پریز" class="rounded-lg mb-4 w-full h-40 object-cover">
+                    <h3 class="text-xl font-semibold mb-2">کلید و پریز مدرن</h3>
+                    <p class="text-gray-600 mb-4">طراحی زیبا و نصب آسان.</p>
+                    <span class="text-yellow-600 font-bold text-lg">۷۵,۰۰۰ تومان</span>
+                    <button class="add-to-cart-btn mt-4 w-full bg-yellow-500 text-white py-2 rounded-full font-bold hover:bg-yellow-600 transition duration-300">
+                        افزودن به سبد خرید
+                    </button>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center product-card">
+                    <img src="https://placehold.co/300x200/94A3B8/FFFFFF?text=چراغ+خیابانی" alt="چراغ خیابانی" class="rounded-lg mb-4 w-full h-40 object-cover">
+                    <h3 class="text-xl font-semibold mb-2">چراغ خیابانی</h3>
+                    <p class="text-gray-600 mb-4">مقاوم در برابر آب و گرد و غبار.</p>
+                    <span class="text-yellow-600 font-bold text-lg">۱,۲۰۰,۰۰۰ تومان</span>
+                    <button class="add-to-cart-btn mt-4 w-full bg-yellow-500 text-white py-2 rounded-full font-bold hover:bg-yellow-600 transition duration-300">
+                        افزودن به سبد خرید
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-4">
+                <i class="fas fa-map-marker-alt"></i>
+                <span class="mr-2">ایران، تهران، خیابان اصلی</span>
+            </div>
+            <div class="mb-4">
+                <i class="fas fa-envelope"></i>
+                <span class="mr-2">info@barghstore.com</span>
+            </div>
+            <div class="mb-4">
+                <i class="fas fa-phone-alt"></i>
+                <span class="mr-2">۰۲۱-۱۲۳۴۵۶۷۸</span>
+            </div>
+            <div class="flex justify-center space-x-4 space-x-reverse mt-6 text-2xl">
+                <a href="#" class="hover:text-yellow-500 transition duration-300"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-yellow-500 transition duration-300"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="hover:text-yellow-500 transition duration-300"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="text-sm mt-8">تمامی حقوق برای فروشگاه کالای برق محفوظ است. © ۱۴۰۲</p>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Modal (Hidden by default) -->
+    <div id="cart-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl shadow-lg w-11/12 md:w-1/2 lg:w-1/3 p-6 relative">
+            <button id="close-modal-btn" class="absolute top-4 left-4 text-gray-500 hover:text-gray-800 text-2xl">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="text-2xl font-bold mb-4 text-center">سبد خرید</h3>
+            <div id="cart-items" class="max-h-80 overflow-y-auto mb-4">
+                <!-- Cart items will be dynamically added here -->
+                <p class="text-center text-gray-500">سبد خرید شما خالی است.</p>
+            </div>
+            <div class="border-t pt-4 flex justify-between items-center">
+                <span class="text-xl font-bold">جمع کل:</span>
+                <span id="cart-total" class="text-xl font-bold text-yellow-600">۰ تومان</span>
+            </div>
+            <button class="mt-6 w-full bg-yellow-500 text-white font-bold py-3 rounded-full hover:bg-yellow-600 transition duration-300">
+                پرداخت نهایی
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript for functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const cartBtnDesktop = document.getElementById('cart-btn-desktop');
+            const cartBtnMobile = document.getElementById('cart-btn-mobile');
+            const cartModal = document.getElementById('cart-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
+            const cartCountDesktop = document.getElementById('cart-count-desktop');
+            const cartCountMobile = document.getElementById('cart-count-mobile');
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+
+            let cart = [];
+
+            // --- Mobile menu toggle functionality ---
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+            });
+            
+            closeMobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+
+            // --- Cart modal functionality ---
+            function openCartModal() {
+                cartModal.classList.remove('hidden');
+                updateCartModal();
+            }
+
+            function closeCartModal() {
+                cartModal.classList.add('hidden');
+            }
+
+            cartBtnDesktop.addEventListener('click', openCartModal);
+            cartBtnMobile.addEventListener('click', openCartModal);
+            closeModalBtn.addEventListener('click', closeCartModal);
+
+            // Close modal when clicking outside the content
+            cartModal.addEventListener('click', (e) => {
+                if (e.target.id === 'cart-modal') {
+                    closeCartModal();
+                }
+            });
+
+            // --- Add to cart functionality ---
+            addToCartBtns.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const productCard = event.target.closest('.product-card');
+                    const productName = productCard.querySelector('h3').textContent;
+                    const productPriceText = productCard.querySelector('span').textContent;
+                    const productPrice = parseInt(productPriceText.replace(/[^0-9]/g, ''));
+
+                    // Check if the item already exists in the cart
+                    const existingItem = cart.find(item => item.name === productName);
+                    if (existingItem) {
+                        existingItem.quantity++;
+                    } else {
+                        cart.push({
+                            name: productName,
+                            price: productPrice,
+                            quantity: 1
+                        });
+                    }
+
+                    // Show a message or notification (simulated)
+                    console.log(`محصول ${productName} به سبد خرید اضافه شد.`);
+                    
+                    updateCartCount();
+                    updateCartModal();
+                    
+                    // Open the modal to show the updated cart
+                    openCartModal();
+                });
+            });
+
+            // --- Update cart count and modal ---
+            function updateCartCount() {
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCountDesktop.textContent = totalItems;
+                cartCountMobile.textContent = totalItems;
+            }
+
+            function updateCartModal() {
+                cartItemsContainer.innerHTML = ''; // Clear existing items
+                let total = 0;
+
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<p class="text-center text-gray-500">سبد خرید شما خالی است.</p>';
+                } else {
+                    cart.forEach(item => {
+                        const itemElement = document.createElement('div');
+                        itemElement.classList.add('flex', 'justify-between', 'items-center', 'py-2', 'border-b', 'last:border-b-0');
+                        itemElement.innerHTML = `
+                            <div class="flex flex-col">
+                                <span class="font-semibold">${item.name}</span>
+                                <span class="text-sm text-gray-500">${item.quantity} عدد</span>
+                            </div>
+                            <span class="font-bold text-yellow-600">${(item.price * item.quantity).toLocaleString()} تومان</span>
+                        `;
+                        cartItemsContainer.appendChild(itemElement);
+                        total += item.price * item.quantity;
+                    });
+                }
+                
+                cartTotalElement.textContent = `${total.toLocaleString()} تومان`;
+            }
+        });
+    </script>
+
+</body>
+</html>
